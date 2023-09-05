@@ -1,4 +1,8 @@
 using APCmini;
+using Melanchall.DryWetMidi.Common;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Button = System.Windows.Forms.Button;
+
 namespace APC_Mini_Remapper
 {
     public partial class Form1 : Form
@@ -117,8 +121,9 @@ namespace APC_Mini_Remapper
         }
         private void OuterButtonClicked(object sender, EventArgs e)
         {
-            string lab = ((Button)sender).Name;
-            MessageBox.Show(APCmini.BTNS.lookup.BtnTable.Single(kvp => kvp.Value == lab).Value);
+            string label = ((Button)sender).Name;
+            SevenBitNumber id = APCmini.BTNS.lookup.BtnTable.Single(kvp => kvp.Value == label).Key;
+            MessageBox.Show(label);
         }
     } 
 }
