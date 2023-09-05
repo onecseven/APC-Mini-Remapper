@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>APC_Mini_Remapper</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="consoleMIDI">
+      <HintPath>..\..\consoleMIDI\consoleMIDI\bin\Debug\net8.0\consoleMIDI.dll</HintPath>
+    </Reference>
+    <Reference Include="Melanchall.DryWetMidi">
+      <HintPath>..\..\consoleMIDI\consoleMIDI\bin\Debug\net8.0\Melanchall.DryWetMidi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
