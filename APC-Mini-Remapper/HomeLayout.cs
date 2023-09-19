@@ -2,12 +2,11 @@ using APCmini;
 using Melanchall.DryWetMidi.Common;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Button = System.Windows.Forms.Button;
-
 namespace APC_Mini_Remapper
 {
-    public partial class Form1 : Form
+    public partial class HomeLayout : Form
     {
-        public Form1()
+        public HomeLayout()
         {
             InitializeComponent();
             button1.Click += Button_Click;
@@ -105,25 +104,23 @@ namespace APC_Mini_Remapper
 
         private void Button_Click(object sender, EventArgs e)
         {
-            if (sender is Button && ((Button)sender).Name.StartsWith("button"))
-            {
-                GridButtonClicked(sender, e);
-            } else
-            {
-                OuterButtonClicked(sender, e);
-            }
+            var pollo = new AssignHotkey(((Button)sender).Name);
+            pollo.Show();
+            //if (sender is Button && ((Button)sender).Name.StartsWith("button"))
+            //{
+            //    GridButtonClicked(sender, e);
+            //} else
+            //{
+            //    OuterButtonClicked(sender, e);
+            //}
         }
+
 
         private void GridButtonClicked(object sender, EventArgs e)
         {
-            int num = ((Button)sender).TabIndex;
-            MessageBox.Show(((Button)sender).Name, num.ToString());
         }
         private void OuterButtonClicked(object sender, EventArgs e)
         {
-            string label = ((Button)sender).Name;
-            SevenBitNumber id = APCmini.BTNS.lookup.BtnTable.Single(kvp => kvp.Value == label).Key;
-            MessageBox.Show(label);
         }
     } 
 }

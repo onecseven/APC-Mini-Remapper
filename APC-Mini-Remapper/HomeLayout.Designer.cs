@@ -1,6 +1,6 @@
 ﻿namespace APC_Mini_Remapper
 {
-    partial class Form1
+    partial class HomeLayout
     {
         /// <summary>
         ///  Required designer variable.
@@ -196,7 +196,6 @@
             button1.TabIndex = 0;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += Button_Click;
             // 
             // button2
             // 
