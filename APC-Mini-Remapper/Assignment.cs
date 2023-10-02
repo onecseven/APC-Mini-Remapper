@@ -6,13 +6,27 @@ namespace APC_Mini_Remapper
 {
     public partial class AssignHotkey : Form
     {
+
+        // ON INDEX SELECTED CHANGE, DO 'CONFIGURE BUTTON' WITH THE CURRENT CONFIGURATION
+
         private APCInputDevice conf;
         public AssignHotkey(string name)
         {
             InitializeComponent();
             this.Text = name;
             this.conf = APCListener.GetOrCreateConf(name);
-
+            //populate defaults
+            if (((APCButton)conf).Transitions.ContainsKey(lookup.evnt(conf.type, "OFF")))
+            {
+                var pressTransition = ((APCButton)conf).Transitions[lookup.evnt(conf.type, "OFF")];
+                if (pressTransition.Hotkey.HasValue)
+                {
+                    charKey.SelectedText = pressTransition.Hotkey.Value.mod1.Value.label;
+                    if (pressTransition.Hotkey.Value.mod1.HasValue) mod1.SelectedText = pressTransition.Hotkey.Value.mod1.Value.label;
+                    if (pressTransition.Hotkey.Value.mod2.HasValue) mod2.SelectedText = pressTransition.Hotkey.Value.mod2.Value.label;
+                }
+            }
+            //add options
             foreach (var key in APCmini.Keys.modKeys)
             {
                 mod1.Items.Add(key.label);
@@ -80,6 +94,11 @@ namespace APC_Mini_Remapper
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }
