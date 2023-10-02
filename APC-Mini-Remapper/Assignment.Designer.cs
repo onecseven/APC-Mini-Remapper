@@ -30,6 +30,7 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            button1 = new Button();
             label1 = new Label();
             keySelectionGroup = new GroupBox();
             label4 = new Label();
@@ -40,7 +41,6 @@
             mod2 = new ComboBox();
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
-            button1 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             keySelectionGroup.SuspendLayout();
@@ -72,14 +72,25 @@
             tabPage1.Text = "Button Presses";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            button1.Location = new Point(127, 269);
+            button1.Name = "button1";
+            button1.Size = new Size(104, 24);
+            button1.TabIndex = 8;
+            button1.Text = "OK";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(13, 14);
+            label1.Location = new Point(7, 14);
             label1.Name = "label1";
-            label1.Size = new Size(227, 15);
+            label1.Size = new Size(232, 43);
             label1.TabIndex = 6;
-            label1.Text = "Choose a button combination for this key";
+            label1.Text = "Choose a button combination for this key to perform when pressed.";
+            label1.UseMnemonic = false;
+            label1.Click += label1_Click_1;
             // 
             // keySelectionGroup
             // 
@@ -89,9 +100,9 @@
             keySelectionGroup.Controls.Add(mod1);
             keySelectionGroup.Controls.Add(charKey);
             keySelectionGroup.Controls.Add(mod2);
-            keySelectionGroup.Location = new Point(6, 32);
+            keySelectionGroup.Location = new Point(6, 60);
             keySelectionGroup.Name = "keySelectionGroup";
-            keySelectionGroup.Size = new Size(233, 226);
+            keySelectionGroup.Size = new Size(233, 198);
             keySelectionGroup.TabIndex = 7;
             keySelectionGroup.TabStop = false;
             keySelectionGroup.Text = "Key Selection";
@@ -100,7 +111,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(7, 34);
+            label4.Location = new Point(7, 22);
             label4.Name = "label4";
             label4.Size = new Size(26, 15);
             label4.TabIndex = 6;
@@ -109,7 +120,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(7, 94);
+            label3.Location = new Point(7, 82);
             label3.Name = "label3";
             label3.Size = new Size(107, 15);
             label3.TabIndex = 5;
@@ -119,18 +130,21 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(7, 151);
+            label2.Location = new Point(7, 139);
             label2.Name = "label2";
             label2.Size = new Size(107, 15);
             label2.TabIndex = 4;
             label2.Text = "Modifier (optional)";
             // 
+
+            // TODO CONNECT THESE TO AN EVENT HANDLERS IN ASSIGNMENT
+
             // mod1
             // 
             mod1.AllowDrop = true;
             mod1.DropDownStyle = ComboBoxStyle.DropDownList;
             mod1.FormattingEnabled = true;
-            mod1.Location = new Point(6, 169);
+            mod1.Location = new Point(6, 157);
             mod1.Name = "mod1";
             mod1.Size = new Size(221, 23);
             mod1.TabIndex = 0;
@@ -139,7 +153,7 @@
             // 
             charKey.DropDownStyle = ComboBoxStyle.DropDownList;
             charKey.FormattingEnabled = true;
-            charKey.Location = new Point(7, 52);
+            charKey.Location = new Point(7, 40);
             charKey.Name = "charKey";
             charKey.Size = new Size(221, 23);
             charKey.TabIndex = 2;
@@ -148,11 +162,10 @@
             // 
             mod2.DropDownStyle = ComboBoxStyle.DropDownList;
             mod2.FormattingEnabled = true;
-            mod2.Location = new Point(7, 112);
+            mod2.Location = new Point(7, 100);
             mod2.Name = "mod2";
             mod2.Size = new Size(221, 23);
             mod2.TabIndex = 3;
-            //mod2.SelectedIndexChanged += this.mod2_SelectedIndexChanged;
             // 
             // tabPage2
             // 
@@ -174,16 +187,6 @@
             tabPage3.Text = "Events";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            button1.Location = new Point(127, 269);
-            button1.Name = "button1";
-            button1.Size = new Size(104, 24);
-            button1.TabIndex = 8;
-            button1.Text = "OK";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // AssignHotkey
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -195,7 +198,6 @@
             Load += Form2_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
             keySelectionGroup.ResumeLayout(false);
             keySelectionGroup.PerformLayout();
             ResumeLayout(false);
