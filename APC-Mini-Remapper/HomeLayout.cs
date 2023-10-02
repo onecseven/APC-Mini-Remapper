@@ -1,7 +1,12 @@
 using APCmini;
 using Melanchall.DryWetMidi.Common;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Button = System.Windows.Forms.Button;
+using Melanchall.DryWetMidi.Core;
+using Melanchall.DryWetMidi.Multimedia;
+using APC_Mini_Remapper.Properties;
+
 namespace APC_Mini_Remapper
 {
     public partial class HomeLayout : Form
@@ -90,9 +95,14 @@ namespace APC_Mini_Remapper
             VOLUME.Click += Button_Click;
             DOWN.Click += Button_Click;
             UP.Click += Button_Click;
+            bool start = APCListener.Main();
+            if (start)
+            {
+                ConnectionIndicator.Image = Resources.green;
+            }
         }
 
-    private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
@@ -106,13 +116,6 @@ namespace APC_Mini_Remapper
         {
             var pollo = new AssignHotkey(((Button)sender).Name);
             pollo.Show();
-            //if (sender is Button && ((Button)sender).Name.StartsWith("button"))
-            //{
-            //    GridButtonClicked(sender, e);
-            //} else
-            //{
-            //    OuterButtonClicked(sender, e);
-            //}
         }
 
 
@@ -122,5 +125,54 @@ namespace APC_Mini_Remapper
         private void OuterButtonClicked(object sender, EventArgs e)
         {
         }
-    } 
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button66_Click(object sender, EventArgs e)
+        {
+            var filePath = string.Empty;
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                openFileDialog.Filter = "APCmini conf files (*.conf)|*.conf";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+                    APCmini.IO.import(filePath);
+                }
+            }
+        }
+
+        private void button67_Click(object sender, EventArgs e)
+        {
+            var filePath = string.Empty;
+            using (SaveFileDialog saveDialog = new SaveFileDialog())
+            {
+                saveDialog.InitialDirectory = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                saveDialog.FileName = "apcmini"; // Default file name
+                saveDialog.DefaultExt = ".conf"; // Default file extension
+                saveDialog.Filter = "APCmini conf files (*.conf)|*.conf";
+                saveDialog.RestoreDirectory = true;
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    APCmini.IO.export(saveDialog.FileName);
+                }
+            }
+        }
+
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+        }
+    }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeLayout));
             flowLayoutPanel1 = new FlowLayoutPanel();
             button1 = new Button();
             button2 = new Button();
@@ -112,9 +113,14 @@
             VOLUME = new Button();
             DOWN = new Button();
             UP = new Button();
+            ConnectionIndicator = new PictureBox();
+            button66 = new Button();
+            button67 = new Button();
+            openFileDialog1 = new OpenFileDialog();
             flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ConnectionIndicator).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -785,7 +791,7 @@
             STOP_ALL.Name = "STOP_ALL";
             STOP_ALL.Size = new Size(75, 23);
             STOP_ALL.TabIndex = 7;
-            STOP_ALL.Text = "button72";
+            STOP_ALL.Text = "STOP_ALL";
             STOP_ALL.UseVisualStyleBackColor = true;
             // 
             // UNLABELLED_BOTTOM
@@ -794,7 +800,7 @@
             UNLABELLED_BOTTOM.Name = "UNLABELLED_BOTTOM";
             UNLABELLED_BOTTOM.Size = new Size(75, 23);
             UNLABELLED_BOTTOM.TabIndex = 6;
-            UNLABELLED_BOTTOM.Text = "button73";
+            UNLABELLED_BOTTOM.Text = "BLANK 🔽";
             UNLABELLED_BOTTOM.UseVisualStyleBackColor = true;
             // 
             // UNLABELLED_TOP
@@ -803,7 +809,7 @@
             UNLABELLED_TOP.Name = "UNLABELLED_TOP";
             UNLABELLED_TOP.Size = new Size(75, 23);
             UNLABELLED_TOP.TabIndex = 5;
-            UNLABELLED_TOP.Text = "button68";
+            UNLABELLED_TOP.Text = "BLANK 🔼";
             UNLABELLED_TOP.UseVisualStyleBackColor = true;
             // 
             // SELECT
@@ -812,7 +818,7 @@
             SELECT.Name = "SELECT";
             SELECT.Size = new Size(75, 23);
             SELECT.TabIndex = 4;
-            SELECT.Text = "button69";
+            SELECT.Text = "SELECT";
             SELECT.UseVisualStyleBackColor = true;
             // 
             // MUTE
@@ -821,7 +827,7 @@
             MUTE.Name = "MUTE";
             MUTE.Size = new Size(75, 23);
             MUTE.TabIndex = 3;
-            MUTE.Text = "button70";
+            MUTE.Text = "MUTE";
             MUTE.UseVisualStyleBackColor = true;
             // 
             // REC_ARM
@@ -830,7 +836,7 @@
             REC_ARM.Name = "REC_ARM";
             REC_ARM.Size = new Size(75, 23);
             REC_ARM.TabIndex = 2;
-            REC_ARM.Text = "button67";
+            REC_ARM.Text = "REC_ARM";
             REC_ARM.UseVisualStyleBackColor = true;
             // 
             // SOLO
@@ -839,7 +845,7 @@
             SOLO.Name = "SOLO";
             SOLO.Size = new Size(75, 23);
             SOLO.TabIndex = 1;
-            SOLO.Text = "button66";
+            SOLO.Text = "SOLO";
             SOLO.UseVisualStyleBackColor = true;
             // 
             // CLIP_STOP
@@ -850,7 +856,7 @@
             CLIP_STOP.Name = "CLIP_STOP";
             CLIP_STOP.Size = new Size(75, 23);
             CLIP_STOP.TabIndex = 0;
-            CLIP_STOP.Text = "button65";
+            CLIP_STOP.Text = "CLIP_STOP";
             CLIP_STOP.UseVisualStyleBackColor = true;
             CLIP_STOP.Click += button65_Click;
             // 
@@ -860,7 +866,7 @@
             SHIFT.Name = "SHIFT";
             SHIFT.Size = new Size(75, 23);
             SHIFT.TabIndex = 8;
-            SHIFT.Text = "button71";
+            SHIFT.Text = "SHIFT";
             SHIFT.UseVisualStyleBackColor = true;
             // 
             // panel2
@@ -884,7 +890,7 @@
             SEND.Name = "SEND";
             SEND.Size = new Size(75, 23);
             SEND.TabIndex = 7;
-            SEND.Text = "button80";
+            SEND.Text = "SEND";
             SEND.UseVisualStyleBackColor = true;
             // 
             // DEVICE
@@ -893,7 +899,7 @@
             DEVICE.Name = "DEVICE";
             DEVICE.Size = new Size(75, 23);
             DEVICE.TabIndex = 6;
-            DEVICE.Text = "button81";
+            DEVICE.Text = "DEVICE";
             DEVICE.UseVisualStyleBackColor = true;
             // 
             // RIGHT
@@ -902,7 +908,7 @@
             RIGHT.Name = "RIGHT";
             RIGHT.Size = new Size(75, 23);
             RIGHT.TabIndex = 5;
-            RIGHT.Text = "button77";
+            RIGHT.Text = "→ ";
             RIGHT.UseVisualStyleBackColor = true;
             // 
             // PAN
@@ -911,7 +917,7 @@
             PAN.Name = "PAN";
             PAN.Size = new Size(75, 23);
             PAN.TabIndex = 3;
-            PAN.Text = "button79";
+            PAN.Text = "PAN";
             PAN.UseVisualStyleBackColor = true;
             // 
             // LEFT
@@ -920,7 +926,7 @@
             LEFT.Name = "LEFT";
             LEFT.Size = new Size(75, 23);
             LEFT.TabIndex = 2;
-            LEFT.Text = "button76";
+            LEFT.Text = "← ";
             LEFT.UseVisualStyleBackColor = true;
             // 
             // VOLUME
@@ -929,7 +935,7 @@
             VOLUME.Name = "VOLUME";
             VOLUME.Size = new Size(75, 23);
             VOLUME.TabIndex = 4;
-            VOLUME.Text = "button78";
+            VOLUME.Text = "VOLUME";
             VOLUME.UseVisualStyleBackColor = true;
             // 
             // DOWN
@@ -938,7 +944,7 @@
             DOWN.Name = "DOWN";
             DOWN.Size = new Size(75, 23);
             DOWN.TabIndex = 1;
-            DOWN.Text = "button75";
+            DOWN.Text = "↓ ";
             DOWN.UseVisualStyleBackColor = true;
             // 
             // UP
@@ -947,24 +953,64 @@
             UP.Name = "UP";
             UP.Size = new Size(75, 23);
             UP.TabIndex = 0;
-            UP.Text = "button74";
+            UP.Text = "↑ ";
             UP.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // pictureBox1
+            // 
+            ConnectionIndicator.Image = (Image)resources.GetObject("pictureBox1.Image");
+            ConnectionIndicator.Location = new Point(16, 338);
+            ConnectionIndicator.Name = "pictureBox1";
+            ConnectionIndicator.Size = new Size(34, 32);
+            ConnectionIndicator.SizeMode = PictureBoxSizeMode.StretchImage;
+            ConnectionIndicator.TabIndex = 9;
+            ConnectionIndicator.TabStop = false;
+            ConnectionIndicator.Click += pictureBox1_Click_1;
+            // 
+            // button66
+            // 
+            button66.Location = new Point(502, 328);
+            button66.Name = "button66";
+            button66.Size = new Size(155, 26);
+            button66.TabIndex = 11;
+            button66.Text = "Import Config File";
+            button66.UseVisualStyleBackColor = true;
+            button66.Click += button66_Click;
+            // 
+            // button67
+            // 
+            button67.Location = new Point(502, 357);
+            button67.Name = "button67";
+            button67.Size = new Size(155, 26);
+            button67.TabIndex = 12;
+            button67.Text = "Export Config File";
+            button67.UseVisualStyleBackColor = true;
+            button67.Click += button67_Click;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.FileOk += openFileDialog1_FileOk;
+            // 
+            // HomeLayout
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(795, 616);
+            ClientSize = new Size(787, 408);
+            Controls.Add(button67);
+            Controls.Add(button66);
             Controls.Add(SHIFT);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(flowLayoutPanel1);
-            Name = "Form1";
+            Controls.Add(ConnectionIndicator);
+            Name = "HomeLayout";
             Text = "Form1";
             Load += Form1_Load;
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ConnectionIndicator).EndInit();
             ResumeLayout(false);
         }
 
@@ -1054,5 +1100,9 @@
         private Button VOLUME;
         private Button DOWN;
         private Button UP;
+        private PictureBox ConnectionIndicator;
+        private Button button66;
+        private Button button67;
+        private OpenFileDialog openFileDialog1;
     }
 }
