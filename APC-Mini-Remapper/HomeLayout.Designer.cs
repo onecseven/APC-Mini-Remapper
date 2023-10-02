@@ -337,6 +337,7 @@
             button16.TabIndex = 15;
             button16.Text = "button16";
             button16.UseVisualStyleBackColor = true;
+            button16.Click += button16_Click;
             // 
             // button17
             // 
@@ -956,11 +957,11 @@
             UP.Text = "↑ ";
             UP.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // ConnectionIndicator
             // 
-            ConnectionIndicator.Image = (Image)resources.GetObject("pictureBox1.Image");
+            ConnectionIndicator.Image = (Image)resources.GetObject("ConnectionIndicator.Image");
             ConnectionIndicator.Location = new Point(16, 338);
-            ConnectionIndicator.Name = "pictureBox1";
+            ConnectionIndicator.Name = "ConnectionIndicator";
             ConnectionIndicator.Size = new Size(34, 32);
             ConnectionIndicator.SizeMode = PictureBoxSizeMode.StretchImage;
             ConnectionIndicator.TabIndex = 9;

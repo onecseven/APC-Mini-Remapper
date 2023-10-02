@@ -112,18 +112,33 @@ namespace APC_Mini_Remapper
 
         }
 
+
         private void Button_Click(object sender, EventArgs e)
         {
-            var pollo = new AssignHotkey(((Button)sender).Name);
-            pollo.Show();
+            if (sender is Button && ((Button)sender).Name.StartsWith("button"))
+            {
+                GridButtonClicked(sender, e);
+            }
+            else
+            {
+                OuterButtonClicked(sender, e);
+            }
         }
-
 
         private void GridButtonClicked(object sender, EventArgs e)
         {
+            int num = ((Button)sender).TabIndex;
+            var pollo = new AssignHotkey(lookup.grid_btn_by_index(num));
+            pollo.Show();
+
+
         }
         private void OuterButtonClicked(object sender, EventArgs e)
         {
+            string label = ((Button)sender).Name;
+            var pollo = new AssignHotkey(((Button)sender).Name);
+            pollo.Show();
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -173,6 +188,11 @@ namespace APC_Mini_Remapper
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

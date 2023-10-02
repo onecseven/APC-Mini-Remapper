@@ -6,11 +6,13 @@ namespace APC_Mini_Remapper
 {
     public partial class AssignHotkey : Form
     {
-
+        private APCInputDevice conf;
         public AssignHotkey(string name)
         {
             InitializeComponent();
             this.Text = name;
+            this.conf = APCListener.GetOrCreateConf(name);
+
             foreach (var key in APCmini.Keys.modKeys)
             {
                 mod1.Items.Add(key.label);
